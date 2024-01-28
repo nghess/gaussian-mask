@@ -26,7 +26,6 @@ while loop:
         if cv2.waitKey(1) == ord('q'):
             break
 
-
     elif counter < corner*2:
 
         canvas = cv2.circle(canvas, origin, counter-corner, 0, -1)

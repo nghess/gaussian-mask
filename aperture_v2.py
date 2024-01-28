@@ -5,7 +5,7 @@ import numpy as np
 Aperture Mask - Animated Demo
 """
 
-size = 256  # Window size
+size = 1024  # Window size
 origin = [size//2, size//2]  # Center of canvas
 corner = int(np.sqrt(((size//2)**2)*2))  # Distance between origin and corner
 

@@ -13,13 +13,14 @@ canvas = np.zeros([size,size], dtype=np.uint8)  # Array to draw on
 # Animation
 loop = True
 counter = 0
+blur = 49
 
 while loop:
 
     if counter < corner:
 
         canvas = cv2.circle(canvas, origin, counter, 255, -1)
-        canvas = cv2.GaussianBlur(canvas, (25,25), 50)
+        canvas = cv2.GaussianBlur(canvas, (blur,blur), 0)
 
         cv2.imshow("aperture", canvas)
         cv2.waitKey(1)
@@ -29,7 +30,7 @@ while loop:
     elif counter < corner*2:
 
         canvas = cv2.circle(canvas, origin, counter-corner, 0, -1)
-        canvas = cv2.GaussianBlur(canvas, (25,25), 50)
+        canvas = cv2.GaussianBlur(canvas, (blur,blur), 0)
 
         cv2.imshow("aperture", canvas)
         cv2.waitKey(1)

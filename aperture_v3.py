@@ -89,9 +89,12 @@ while loop:
     if counter < corner:
 
         canvas = np.zeros([size+1,size+1], dtype=np.float32)  # Black Canvas
+        gray = np.ones([size+1,size+1], dtype=np.uint8)*128  # Gray Canvas
         mask = cv2.circle(canvas, origin, counter, 1, -1)
         mask = np.array(cv2.GaussianBlur(canvas, (blur,blur), blur))
         canvas = np.array(mask * fractal_frame, dtype=np.uint8)
+        gray -= np.array(mask, dtype=np.uint8)
+        canvas += gray
 
         cv2.imshow("aperture", canvas)
         cv2.waitKey(16)
@@ -101,9 +104,14 @@ while loop:
     elif counter < corner*2:
 
         canvas = np.ones([size+1,size+1], dtype=np.float32)  # White Canvas
+        gray = np.ones([size+1,size+1], dtype=np.uint8)*128  # Gray Canvas
         mask = cv2.circle(canvas, origin, counter-corner, 0, -1)
         mask = np.array(cv2.GaussianBlur(canvas, (blur,blur), blur))
         canvas = np.array(mask * fractal_frame, dtype=np.uint8)
+        gray -= np.array(mask, dtype=np.uint8)
+        canvas += gray
+
+
 
         cv2.imshow("aperture", canvas)
         cv2.waitKey(16)

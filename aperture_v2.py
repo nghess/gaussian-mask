@@ -23,7 +23,6 @@ while loop:
         canvas = cv2.GaussianBlur(canvas, (blur,blur), 0)
 
         cv2.imshow("aperture", canvas)
-        cv2.waitKey(1)
         if cv2.waitKey(1) == ord('q'):
             break
 
@@ -33,7 +32,6 @@ while loop:
         canvas = cv2.GaussianBlur(canvas, (blur,blur), 0)
 
         cv2.imshow("aperture", canvas)
-        cv2.waitKey(1)
         if cv2.waitKey(1) == ord('q'):
             break
 
